@@ -9,6 +9,7 @@ import json
 #  This is a comment
 
 hostname = socket.gethostname()
+ipaddr = socket.gethostbyname(hostname)
 proc = platform.processor()
 
 # may have to have env variable for Z
@@ -20,6 +21,7 @@ def hello():
     resp = make_response(render_template(
         'index.html',
         hostname=hostname,
+        ipaddr=ipaddr,
         proc=proc,
     ))
     return resp
